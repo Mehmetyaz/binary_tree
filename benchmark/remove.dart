@@ -4,10 +4,10 @@ import 'create_csv.dart';
 
 /// scenario
 /// even integers (2 * i)
-/// length 20 -> 1M (20 increases)
+/// length 20 -> N (20 increases)
 /// contains -> 10 times even , 10 times odd
 ///
-/// For lists of different lengths, we query contains 20 times.
+/// For lists of different lengths, we query remove 20 times.
 /// We are sure that 10 of them exist,
 /// we are sure that the other 10 do not exist.
 /// These 10 numbers are evenly spaced across the list.

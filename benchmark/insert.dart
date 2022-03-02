@@ -6,7 +6,7 @@ import 'create_csv.dart';
 
 /// scenario
 /// random integers (0 - 1B)
-/// length 20 -> 1M (20 increases)
+/// length 20 -> N (20 increases)
 /// insert and keep order
 ///
 /// scenario 1

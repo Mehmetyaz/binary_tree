@@ -319,6 +319,6 @@ class BinaryTree<T extends Comparable> extends IterableBase<T> {
   @override
   bool contains(Object? element) {
     if (element is! T) return false;
-    return _rootNode?.contains(element) ?? false;
+    return _rootNode?._contains(element) ?? false;
   }
 }

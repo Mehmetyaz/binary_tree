@@ -1,6 +1,9 @@
 part of 'binary_tree_base.dart';
 
+/// Tree Node. Each node have data.
+/// May be have left and right
 class TreeNode<T extends Comparable> {
+  /// Create with data
   TreeNode(this.data);
 
   @override
@@ -8,11 +11,20 @@ class TreeNode<T extends Comparable> {
     return "${left?.data} - $data - ${right?.data}    ------ h: $height";
   }
 
+  /// is leaf or is end.
+  /// So left and right null.
   bool get isEnd => left == null && right == null;
 
+  /// Holt data
   T data;
+
+  /// deep
   int height = 0;
+
+  /// Left node
   TreeNode<T>? left;
+
+  /// Left node
   TreeNode<T>? right;
 
   int _h(TreeNode<T>? n) {
@@ -23,33 +35,12 @@ class TreeNode<T extends Comparable> {
     height = math.max(_h(left), _h(right)) + 1;
   }
 
-  bool add(T element) {
-    var c = data.compareTo(element);
-    if (c == (-1)) {
-      if (right == null) {
-        right = TreeNode(element);
-        return true;
-      } else {
-        return right!.add(element);
-      }
-    } else if (c == (1)) {
-      if (left == null) {
-        left = TreeNode(element);
-        return true;
-      } else {
-        return left!.add(element);
-      }
-    } else {
-      return false;
-    }
-  }
-
-  bool contains(T element) {
+  bool _contains(T element) {
     if (data == element) return true;
     if (element > data) {
-      return right?.contains(element) ?? false;
+      return right?._contains(element) ?? false;
     } else if (element < data) {
-      return left?.contains(element) ?? false;
+      return left?._contains(element) ?? false;
     } else {
       return false;
     }
