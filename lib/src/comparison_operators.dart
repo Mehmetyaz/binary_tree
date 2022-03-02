@@ -1,4 +1,3 @@
-
 part of 'binary_tree_base.dart';
 
 extension ComparisonOperators on Comparable {

@@ -42,7 +42,7 @@ void main() {
     t++;
   }
 
-  createCsv(tr, "contains_short" , "count, list, binary");
+  createCsv(tr, "contains_short", "count, list, binary");
 }
 
 List<int> testWithLength(int length) {

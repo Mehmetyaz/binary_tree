@@ -6,21 +6,13 @@ part 'node.dart';
 
 part 'iterator.dart';
 
-part 'location.dart';
-
 part 'comparison_operators.dart';
 
 part 'bound.dart';
 
-
-
-
-
 /// Self-Balancing Binary Search Tree
 /// https://en.wikipedia.org/wiki/Binary_search_tree
 class BinaryTree<T extends Comparable> extends IterableBase<T> {
-
-
   /// Create Binary Tree
   BinaryTree([Iterable<T>? values]) : super() {
     if (values != null) {
@@ -35,7 +27,6 @@ class BinaryTree<T extends Comparable> extends IterableBase<T> {
 
   /// Root node
   TreeNode<T> get root => _rootNode!;
-
 
   /// Insert a value
   void insert(T element) {
@@ -175,7 +166,6 @@ class BinaryTree<T extends Comparable> extends IterableBase<T> {
     return k1!;
   }
 
-
   /// Minimum value
   T get min => first;
 
@@ -297,7 +287,6 @@ class BinaryTree<T extends Comparable> extends IterableBase<T> {
   List<T> greaterThenOrEqual(T element) {
     return toListFrom(element, equal: true, greaterThen: true);
   }
-
 
   /// List of values less then [element]
   /// return orderly descending

@@ -19,7 +19,7 @@ class TreeNode<T extends Comparable> {
     return n == null ? -1 : n.height;
   }
 
-  void _setH(){
+  void _setH() {
     height = math.max(_h(left), _h(right)) + 1;
   }
 
@@ -32,7 +32,7 @@ class TreeNode<T extends Comparable> {
       } else {
         return right!.add(element);
       }
-    } else if (c == ( 1)) {
+    } else if (c == (1)) {
       if (left == null) {
         left = TreeNode(element);
         return true;
@@ -54,11 +54,4 @@ class TreeNode<T extends Comparable> {
       return false;
     }
   }
-
-
-
-
-
-
-
 }
