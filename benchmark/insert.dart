@@ -27,7 +27,7 @@ void main() {
       var n = i * 20;
       results.add([n, ...testWithLength(n)]);
       if (i % 100 == 0) {
-        print("$t $i");
+        print('$t $i');
       }
       i++;
     }
@@ -44,7 +44,7 @@ void main() {
     t++;
   }
 
-  createCsv(tr, "insert_2", "count, list, binary");
+  createCsv(tr, 'insert_2', 'count, list, binary');
 }
 
 List<int> testWithLength(int length) {

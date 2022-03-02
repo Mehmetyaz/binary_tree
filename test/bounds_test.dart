@@ -7,7 +7,7 @@ import 'package:test/scaffolding.dart';
 void main() {
   for (var i = 0; i < 500; i++) {
     var l = randomList();
-    test("$i", () {
+    test('$i', () {
       expect(getSubWithList(l), getSubWithBinary(l));
     });
   }
@@ -21,9 +21,8 @@ List<int> getSubWithBinary(List<int> l) {
       bound: Bound(element: 7000, equal: false));
 }
 
-List<int> getSubWithList(List<int> l) {
-  return l.where((element) => element > 3000 && element < 7000).toList()..sort();
-}
+List<int> getSubWithList(List<int> l) =>
+    l.where((element) => element > 3000 && element < 7000).toList()..sort();
 
 List<int> randomList() {
   var rand = Random();

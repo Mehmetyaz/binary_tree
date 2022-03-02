@@ -25,7 +25,7 @@ void main() {
       var n = i * 20;
       results.add([n, ...testWithLength(n)]);
       if (i % 100 == 0) {
-        print("$t $i");
+        print('$t $i');
       }
       i++;
     }
@@ -42,12 +42,12 @@ void main() {
     t++;
   }
 
-  createCsv(tr, "contains_short", "count, list, binary");
+  createCsv(tr, 'contains_short', 'count, list, binary');
 }
 
 List<int> testWithLength(int length) {
   var l = getList(length);
-  var testNumbers = [];
+  var testNumbers = <int>[];
   var i = 0;
   while (i < 10) {
     var n = i * (length ~/ 20);
@@ -76,6 +76,4 @@ List<int> testWithLength(int length) {
   return results;
 }
 
-List<int> getList(int length) {
-  return List.generate(length, (index) => index * 2);
-}
+List<int> getList(int length) => List.generate(length, (index) => index * 2);

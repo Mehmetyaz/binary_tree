@@ -6,15 +6,13 @@ class Bound<T extends Comparable> {
   T element;
   bool equal;
 
-  bool check(T value, bool asc) {
-    return asc
-        ? equal
-            ? element >= value
-            : element > value
-        : equal
-            ? element <= value
-            : element < value;
-  }
+  bool check(T value, bool asc) => asc
+      ? equal
+          ? element >= value
+          : element > value
+      : equal
+          ? element <= value
+          : element < value;
 }
 
 class BoundError<T extends Comparable> implements Error {
@@ -31,24 +29,24 @@ class BoundError<T extends Comparable> implements Error {
         if (bound.equal) {
           if (!(bound.element >= element)) {
             throw BoundError<R>(
-                element: element, bound: bound.element, expression: "<");
+                element: element, bound: bound.element, expression: '<');
           }
         } else {
           if (!(bound.element > element)) {
             throw BoundError(
-                element: element, bound: bound.element, expression: ">=");
+                element: element, bound: bound.element, expression: '>=');
           }
         }
       } else {
         if (bound.equal) {
           if (!(bound.element <= element)) {
             throw BoundError<R>(
-                element: element, bound: bound.element, expression: ">");
+                element: element, bound: bound.element, expression: '>');
           }
         } else {
           if (!(bound.element < element)) {
             throw BoundError(
-                element: element, bound: bound.element, expression: "<=");
+                element: element, bound: bound.element, expression: '<=');
           }
         }
       }
@@ -56,12 +54,12 @@ class BoundError<T extends Comparable> implements Error {
       if (greaterThen) {
         if (!(bound.element > element)) {
           throw BoundError(
-              element: element, bound: bound.element, expression: "<=");
+              element: element, bound: bound.element, expression: '<=');
         }
       } else {
         if (!(bound.element < element)) {
           throw BoundError(
-              element: element, bound: bound.element, expression: ">=");
+              element: element, bound: bound.element, expression: '>=');
         }
       }
     }
@@ -74,9 +72,7 @@ class BoundError<T extends Comparable> implements Error {
   String expression;
 
   @override
-  String toString() {
-    return "Wrong bound : $bound $expression $element";
-  }
+  String toString() => 'Wrong bound : $bound $expression $element';
 
   @override
   StackTrace? get stackTrace => StackTrace.current;

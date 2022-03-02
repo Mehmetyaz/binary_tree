@@ -40,9 +40,7 @@ class BinaryTree<T extends Comparable> extends IterableBase<T> {
     _rootNode = _remove(element, _rootNode);
   }
 
-  int _h(TreeNode<T>? n) {
-    return n == null ? -1 : n.height;
-  }
+  int _h(TreeNode<T>? n) => n == null ? -1 : n.height;
 
   TreeNode<T> _balance(TreeNode<T> t) {
     while (_h(t.left) - _h(t.right) > 1) {
@@ -176,7 +174,7 @@ class BinaryTree<T extends Comparable> extends IterableBase<T> {
   @override
   T get first {
     if (_rootNode == null) {
-      throw ArgumentError("No Element");
+      throw ArgumentError('No Element');
     }
     var node = _rootNode;
     while (node?.left != null) {
@@ -189,7 +187,7 @@ class BinaryTree<T extends Comparable> extends IterableBase<T> {
   @override
   T get last {
     if (_rootNode == null) {
-      throw ArgumentError("No Element");
+      throw ArgumentError('No Element');
     }
     var node = _rootNode;
     while (node?.right != null) {
@@ -278,27 +276,21 @@ class BinaryTree<T extends Comparable> extends IterableBase<T> {
 
   /// List of values greater then [element]
   /// return orderly ascending
-  List<T> greaterThen(T element) {
-    return toListFrom(element, greaterThen: true);
-  }
+  List<T> greaterThen(T element) => toListFrom(element, greaterThen: true);
 
   /// List of values greater or equal then [element]
   /// return orderly ascending
-  List<T> greaterThenOrEqual(T element) {
-    return toListFrom(element, equal: true, greaterThen: true);
-  }
+  List<T> greaterThenOrEqual(T element) =>
+      toListFrom(element, equal: true, greaterThen: true);
 
   /// List of values less then [element]
   /// return orderly descending
-  List<T> lessThen(T element) {
-    return toListFrom(element, greaterThen: false);
-  }
+  List<T> lessThen(T element) => toListFrom(element, greaterThen: false);
 
   /// List of values less then or equal [element]
   /// return orderly descending
-  List<T> lessThenOrEqual(T element) {
-    return toListFrom(element, equal: true, greaterThen: false);
-  }
+  List<T> lessThenOrEqual(T element) =>
+      toListFrom(element, equal: true, greaterThen: false);
 
   @override
   bool any(bool Function(T element) test) {

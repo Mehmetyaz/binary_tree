@@ -14,7 +14,7 @@ void main() {
 }
 
 void testRemove(String i) {
-  test("$i remove", () {
+  test('$i remove', () {
     var l = getListByMultiplier(5, 10000);
     var binaryList = BinaryTree(l);
     var sorted = l.toList();
@@ -51,8 +51,8 @@ List<int> getListByMultiplier(int multiplier, int length) {
   return l;
 }
 
-testSorted(String h) {
-  test("test - $h", () {
+void testSorted(String h) {
+  test('test - $h', () {
     var l = randomList();
     var binaryList = BinaryTree(l);
     var binarySorted = binaryList.toList();

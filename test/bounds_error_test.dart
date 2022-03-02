@@ -4,8 +4,8 @@ import 'package:test/scaffolding.dart';
 
 void main() {
   var binaryTree = BinaryTree([10, 8, 16, 4, 9, 13, 25, 2, 6, 12, 26, 14, 18]);
-  group("list gt", () {
-    test("lt", () {
+  group('list gt', () {
+    test('lt', () {
       expect(() {
         binaryTree.toListFrom(8,
             equal: false,
@@ -13,7 +13,7 @@ void main() {
             bound: Bound(element: 7, equal: false));
       }, throwsA(isA<BoundError>()));
     });
-    test("lte", () {
+    test('lte', () {
       expect(() {
         binaryTree.toListFrom(8,
             equal: false,
@@ -22,7 +22,7 @@ void main() {
       }, throwsA(isA<BoundError>()));
     });
 
-    test("e", () {
+    test('e', () {
       expect(() {
         binaryTree.toListFrom(8,
             equal: false,
@@ -31,7 +31,7 @@ void main() {
       }, throwsA(isA<BoundError>()));
     });
 
-    test("ee", () {
+    test('ee', () {
       expect(() {
         binaryTree.toListFrom(8,
             equal: false,
@@ -40,7 +40,7 @@ void main() {
       }, throwsA(isA<BoundError>()));
     });
 
-    test("gt", () {
+    test('gt', () {
       expect(() {
         binaryTree.toListFrom(8,
             equal: false,
@@ -48,7 +48,7 @@ void main() {
             bound: Bound(element: 10, equal: false));
       }, returnsNormally);
     });
-    test("gte", () {
+    test('gte', () {
       expect(() {
         binaryTree.toListFrom(8,
             equal: false,
@@ -58,8 +58,8 @@ void main() {
     });
   });
 
-  group("list gte", () {
-    test("lt", () {
+  group('list gte', () {
+    test('lt', () {
       expect(() {
         binaryTree.toListFrom(8,
             equal: true,
@@ -67,7 +67,7 @@ void main() {
             bound: Bound(element: 7, equal: false));
       }, throwsA(isA<BoundError>()));
     });
-    test("lte", () {
+    test('lte', () {
       expect(() {
         binaryTree.toListFrom(8,
             equal: true,
@@ -76,7 +76,7 @@ void main() {
       }, throwsA(isA<BoundError>()));
     });
 
-    test("e", () {
+    test('e', () {
       expect(() {
         binaryTree.toListFrom(8,
             equal: true,
@@ -85,7 +85,7 @@ void main() {
       }, throwsA(isA<BoundError>()));
     });
 
-    test("ee", () {
+    test('ee', () {
       expect(() {
         binaryTree.toListFrom(8,
             equal: true,
@@ -94,7 +94,7 @@ void main() {
       }, returnsNormally);
     });
 
-    test("gt", () {
+    test('gt', () {
       expect(() {
         binaryTree.toListFrom(8,
             equal: true,
@@ -102,7 +102,7 @@ void main() {
             bound: Bound(element: 10, equal: false));
       }, returnsNormally);
     });
-    test("gte", () {
+    test('gte', () {
       expect(() {
         binaryTree.toListFrom(8,
             equal: true,
@@ -112,10 +112,8 @@ void main() {
     });
   });
 
-
-  group("list lt", () {
-
-    test("lt", () {
+  group('list lt', () {
+    test('lt', () {
       expect(() {
         binaryTree.toListFrom(8,
             equal: false,
@@ -123,7 +121,7 @@ void main() {
             bound: Bound(element: 7, equal: false));
       }, returnsNormally);
     });
-    test("lte", () {
+    test('lte', () {
       expect(() {
         binaryTree.toListFrom(8,
             equal: false,
@@ -132,7 +130,7 @@ void main() {
       }, returnsNormally);
     });
 
-    test("e", () {
+    test('e', () {
       expect(() {
         binaryTree.toListFrom(8,
             equal: false,
@@ -141,7 +139,7 @@ void main() {
       }, throwsA(isA<BoundError>()));
     });
 
-    test("ee", () {
+    test('ee', () {
       expect(() {
         binaryTree.toListFrom(8,
             equal: false,
@@ -150,7 +148,7 @@ void main() {
       }, throwsA(isA<BoundError>()));
     });
 
-    test("gt", () {
+    test('gt', () {
       expect(() {
         binaryTree.toListFrom(8,
             equal: false,
@@ -158,7 +156,7 @@ void main() {
             bound: Bound(element: 10, equal: false));
       }, throwsA(isA<BoundError>()));
     });
-    test("gte", () {
+    test('gte', () {
       expect(() {
         binaryTree.toListFrom(8,
             equal: false,
@@ -168,9 +166,8 @@ void main() {
     });
   });
 
-  group("list lte", () {
-
-    test("lt", () {
+  group('list lte', () {
+    test('lt', () {
       expect(() {
         binaryTree.toListFrom(8,
             equal: true,
@@ -178,7 +175,7 @@ void main() {
             bound: Bound(element: 7, equal: false));
       }, returnsNormally);
     });
-    test("lte", () {
+    test('lte', () {
       expect(() {
         binaryTree.toListFrom(8,
             equal: true,
@@ -187,7 +184,7 @@ void main() {
       }, returnsNormally);
     });
 
-    test("e", () {
+    test('e', () {
       expect(() {
         binaryTree.toListFrom(8,
             equal: true,
@@ -196,7 +193,7 @@ void main() {
       }, throwsA(isA<BoundError>()));
     });
 
-    test("ee", () {
+    test('ee', () {
       expect(() {
         binaryTree.toListFrom(8,
             equal: true,
@@ -205,7 +202,7 @@ void main() {
       }, returnsNormally);
     });
 
-    test("gt", () {
+    test('gt', () {
       expect(() {
         binaryTree.toListFrom(8,
             equal: true,
@@ -213,7 +210,7 @@ void main() {
             bound: Bound(element: 10, equal: false));
       }, throwsA(isA<BoundError>()));
     });
-    test("gte", () {
+    test('gte', () {
       expect(() {
         binaryTree.toListFrom(8,
             equal: true,
@@ -222,5 +219,4 @@ void main() {
       }, throwsA(isA<BoundError>()));
     });
   });
-
 }
