@@ -14,7 +14,7 @@ For more information : [Binary Search Tree](https://en.wikipedia.org/wiki/Binary
 A Self-Balancing type tree is used, which balances the depth of the nodes.<br>
 For more information : [Self Balancing Binary Search Tree](https://en.wikipedia.org/wiki/Self-balancing_binary_search_tree)
 
-![img.png](img.png)
+![img.png](https://github.com/Mehmetyaz/binary_tree/blob/master/benchmark/charts/chart.png)
 
 
 ## Usage
@@ -24,9 +24,9 @@ For more information : [Self Balancing Binary Search Tree](https://en.wikipedia.
 
 You can see if you need it by looking at the benchmarks given below. It is generally advantageous in keeping long and sorted datasets. Its advantage is not noticeable on short datasets.
 
-![img_3.png](img_3.png)
-![img_1.png](img_1.png)
-![img_2.png](img_2.png)
+![img_3.png](https://github.com/Mehmetyaz/binary_tree/blob/master/benchmark/charts/contains.png)
+![img_1.png](https://github.com/Mehmetyaz/binary_tree/blob/master/benchmark/charts/insert2.png)
+![img_2.png](https://github.com/Mehmetyaz/binary_tree/blob/master/benchmark/charts/remove.png)
 
 
 
