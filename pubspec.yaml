@@ -1,6 +1,6 @@
 name: binary_tree
 description: Self-Balancing Binary Search Tree for Dart. BST is implemented as Iterable. There are many operations such as greaterThen, lessThenOrEqual (create sublist), max , min etc.
-version: 1.0.1
+version: 1.0.2
 homepage: https://github.com/Mehmetyaz/binary_tree
 
 environment:
