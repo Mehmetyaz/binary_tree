@@ -7,9 +7,8 @@ class TreeNode<T extends Comparable> {
   TreeNode(this.data);
 
   @override
-  String toString() {
-    return "${left?.data} - $data - ${right?.data}    ------ h: $height";
-  }
+  String toString() =>
+      '${left?.data} - $data - ${right?.data}    ------ h: $height';
 
   /// is leaf or is end.
   /// So left and right null.
@@ -27,9 +26,7 @@ class TreeNode<T extends Comparable> {
   /// Left node
   TreeNode<T>? right;
 
-  int _h(TreeNode<T>? n) {
-    return n == null ? -1 : n.height;
-  }
+  int _h(TreeNode<T>? n) => n == null ? -1 : n.height;
 
   void _setH() {
     height = math.max(_h(left), _h(right)) + 1;

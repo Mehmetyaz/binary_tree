@@ -263,10 +263,8 @@ class IteratorNode<T extends Comparable> {
 
   ///
   @override
-  String toString() {
-    return ("NODE: ${parent?.treeNode.data}"
-        " -- $treeNode --  "
-        "$leftIterated $currentIterated"
-        " $rightIterated");
-  }
+  String toString() => ('NODE: ${parent?.treeNode.data}'
+      ' -- $treeNode --  '
+      '$leftIterated $currentIterated'
+      ' $rightIterated');
 }
