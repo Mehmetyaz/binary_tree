@@ -9,7 +9,7 @@ void main() {
       expect(() {
         binaryTree.toListFrom(8,
             equal: false,
-            greaterThen: true,
+            greaterThan: true,
             bound: Bound(element: 7, equal: false));
       }, throwsA(isA<BoundError>()));
     });
@@ -17,7 +17,7 @@ void main() {
       expect(() {
         binaryTree.toListFrom(8,
             equal: false,
-            greaterThen: true,
+            greaterThan: true,
             bound: Bound(element: 7, equal: true));
       }, throwsA(isA<BoundError>()));
     });
@@ -26,7 +26,7 @@ void main() {
       expect(() {
         binaryTree.toListFrom(8,
             equal: false,
-            greaterThen: true,
+            greaterThan: true,
             bound: Bound(element: 8, equal: false));
       }, throwsA(isA<BoundError>()));
     });
@@ -35,7 +35,7 @@ void main() {
       expect(() {
         binaryTree.toListFrom(8,
             equal: false,
-            greaterThen: true,
+            greaterThan: true,
             bound: Bound(element: 8, equal: true));
       }, throwsA(isA<BoundError>()));
     });
@@ -44,7 +44,7 @@ void main() {
       expect(() {
         binaryTree.toListFrom(8,
             equal: false,
-            greaterThen: true,
+            greaterThan: true,
             bound: Bound(element: 10, equal: false));
       }, returnsNormally);
     });
@@ -52,7 +52,7 @@ void main() {
       expect(() {
         binaryTree.toListFrom(8,
             equal: false,
-            greaterThen: true,
+            greaterThan: true,
             bound: Bound(element: 10, equal: true));
       }, returnsNormally);
     });
@@ -63,7 +63,7 @@ void main() {
       expect(() {
         binaryTree.toListFrom(8,
             equal: true,
-            greaterThen: true,
+            greaterThan: true,
             bound: Bound(element: 7, equal: false));
       }, throwsA(isA<BoundError>()));
     });
@@ -71,7 +71,7 @@ void main() {
       expect(() {
         binaryTree.toListFrom(8,
             equal: true,
-            greaterThen: true,
+            greaterThan: true,
             bound: Bound(element: 7, equal: true));
       }, throwsA(isA<BoundError>()));
     });
@@ -80,7 +80,7 @@ void main() {
       expect(() {
         binaryTree.toListFrom(8,
             equal: true,
-            greaterThen: true,
+            greaterThan: true,
             bound: Bound(element: 8, equal: false));
       }, throwsA(isA<BoundError>()));
     });
@@ -89,7 +89,7 @@ void main() {
       expect(() {
         binaryTree.toListFrom(8,
             equal: true,
-            greaterThen: true,
+            greaterThan: true,
             bound: Bound(element: 8, equal: true));
       }, returnsNormally);
     });
@@ -98,7 +98,7 @@ void main() {
       expect(() {
         binaryTree.toListFrom(8,
             equal: true,
-            greaterThen: true,
+            greaterThan: true,
             bound: Bound(element: 10, equal: false));
       }, returnsNormally);
     });
@@ -106,7 +106,7 @@ void main() {
       expect(() {
         binaryTree.toListFrom(8,
             equal: true,
-            greaterThen: true,
+            greaterThan: true,
             bound: Bound(element: 10, equal: true));
       }, returnsNormally);
     });
@@ -117,7 +117,7 @@ void main() {
       expect(() {
         binaryTree.toListFrom(8,
             equal: false,
-            greaterThen: false,
+            greaterThan: false,
             bound: Bound(element: 7, equal: false));
       }, returnsNormally);
     });
@@ -125,7 +125,7 @@ void main() {
       expect(() {
         binaryTree.toListFrom(8,
             equal: false,
-            greaterThen: false,
+            greaterThan: false,
             bound: Bound(element: 7, equal: true));
       }, returnsNormally);
     });
@@ -134,7 +134,7 @@ void main() {
       expect(() {
         binaryTree.toListFrom(8,
             equal: false,
-            greaterThen: false,
+            greaterThan: false,
             bound: Bound(element: 8, equal: false));
       }, throwsA(isA<BoundError>()));
     });
@@ -143,7 +143,7 @@ void main() {
       expect(() {
         binaryTree.toListFrom(8,
             equal: false,
-            greaterThen: false,
+            greaterThan: false,
             bound: Bound(element: 8, equal: true));
       }, throwsA(isA<BoundError>()));
     });
@@ -152,7 +152,7 @@ void main() {
       expect(() {
         binaryTree.toListFrom(8,
             equal: false,
-            greaterThen: false,
+            greaterThan: false,
             bound: Bound(element: 10, equal: false));
       }, throwsA(isA<BoundError>()));
     });
@@ -160,7 +160,7 @@ void main() {
       expect(() {
         binaryTree.toListFrom(8,
             equal: false,
-            greaterThen: false,
+            greaterThan: false,
             bound: Bound(element: 10, equal: true));
       }, throwsA(isA<BoundError>()));
     });
@@ -171,7 +171,7 @@ void main() {
       expect(() {
         binaryTree.toListFrom(8,
             equal: true,
-            greaterThen: false,
+            greaterThan: false,
             bound: Bound(element: 7, equal: false));
       }, returnsNormally);
     });
@@ -179,7 +179,7 @@ void main() {
       expect(() {
         binaryTree.toListFrom(8,
             equal: true,
-            greaterThen: false,
+            greaterThan: false,
             bound: Bound(element: 7, equal: true));
       }, returnsNormally);
     });
@@ -188,7 +188,7 @@ void main() {
       expect(() {
         binaryTree.toListFrom(8,
             equal: true,
-            greaterThen: false,
+            greaterThan: false,
             bound: Bound(element: 8, equal: false));
       }, throwsA(isA<BoundError>()));
     });
@@ -197,7 +197,7 @@ void main() {
       expect(() {
         binaryTree.toListFrom(8,
             equal: true,
-            greaterThen: false,
+            greaterThan: false,
             bound: Bound(element: 8, equal: true));
       }, returnsNormally);
     });
@@ -206,7 +206,7 @@ void main() {
       expect(() {
         binaryTree.toListFrom(8,
             equal: true,
-            greaterThen: false,
+            greaterThan: false,
             bound: Bound(element: 10, equal: false));
       }, throwsA(isA<BoundError>()));
     });
@@ -214,7 +214,7 @@ void main() {
       expect(() {
         binaryTree.toListFrom(8,
             equal: true,
-            greaterThen: false,
+            greaterThan: false,
             bound: Bound(element: 10, equal: true));
       }, throwsA(isA<BoundError>()));
     });

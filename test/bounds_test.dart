@@ -17,7 +17,7 @@ List<int> getSubWithBinary(List<int> l) {
   var b = BinaryTree(l);
   return b.toListFrom(3000,
       equal: false,
-      greaterThen: true,
+      greaterThan: true,
       bound: Bound(element: 7000, equal: false));
 }
 

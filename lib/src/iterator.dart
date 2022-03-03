@@ -101,14 +101,14 @@ class BinaryTreeIterator<T extends Comparable> extends Iterator<T> {
 
 class BinaryTreeRangeIterator<T extends Comparable> extends Iterator<T> {
   BinaryTreeRangeIterator.from(this._tree, this.element,
-      {required this.equal, required this.greaterThen})
+      {required this.equal, required this.greaterThan})
       : _length = _tree._length;
 
   final T element;
 
   final bool equal;
 
-  final bool greaterThen;
+  final bool greaterThan;
 
   final BinaryTree<T> _tree;
   final int _length;
@@ -133,7 +133,7 @@ class BinaryTreeRangeIterator<T extends Comparable> extends Iterator<T> {
       _rootNode!._setCurrent();
     }
 
-    var n = greaterThen ? _rootNode!.moveNext() : _rootNode!.moveBack();
+    var n = greaterThan ? _rootNode!.moveNext() : _rootNode!.moveBack();
     if (n == null) return false;
     _currentNode = n;
     return true;
@@ -152,7 +152,7 @@ class RangeIteratorNode<T extends Comparable> extends IteratorNode<T> {
   /// return iterated
   bool _setCurrent() {
     if (_iterator.element > treeNode.data) {
-      if (_iterator.greaterThen) {
+      if (_iterator.greaterThan) {
         leftIterated = true;
         currentIterated = true;
       }
@@ -161,7 +161,7 @@ class RangeIteratorNode<T extends Comparable> extends IteratorNode<T> {
         rightIterated = _right!._setCurrent();
       }
     } else if (_iterator.element < treeNode.data) {
-      if (!_iterator.greaterThen) {
+      if (!_iterator.greaterThan) {
         rightIterated = true;
         currentIterated = true;
       }
@@ -171,7 +171,7 @@ class RangeIteratorNode<T extends Comparable> extends IteratorNode<T> {
       }
     } else {
       /// equal
-      if (_iterator.greaterThen) {
+      if (_iterator.greaterThan) {
         leftIterated = true;
         if (!_iterator.equal) {
           currentIterated = true;

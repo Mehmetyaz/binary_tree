@@ -22,10 +22,10 @@ class BoundError<T extends Comparable> implements Error {
   static void check<R extends Comparable>(
       {required Bound<R> bound,
       required R element,
-      required bool greaterThen,
+      required bool greaterThan,
       required bool equal}) {
     if (equal) {
-      if (greaterThen) {
+      if (greaterThan) {
         if (bound.equal) {
           if (!(bound.element >= element)) {
             throw BoundError<R>(
@@ -51,7 +51,7 @@ class BoundError<T extends Comparable> implements Error {
         }
       }
     } else {
-      if (greaterThen) {
+      if (greaterThan) {
         if (!(bound.element > element)) {
           throw BoundError(
               element: element, bound: bound.element, expression: '<=');

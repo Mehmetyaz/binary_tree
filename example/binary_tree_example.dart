@@ -7,7 +7,7 @@ void main() {
   b.insert(27);
   b.remove(27);
 
-  print(b.toListFrom(8, equal: false, greaterThen: true));
+  print(b.toListFrom(8, equal: false, greaterThan: true));
 
   return;
 }

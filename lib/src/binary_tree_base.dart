@@ -217,15 +217,15 @@ class BinaryTree<T extends Comparable> extends IterableBase<T> {
   /// Range starting point is [element]. If the range can contains [element],
   /// [equal] must be true.
   ///
-  /// [greaterThen] must be true to get greater than this starting point.
+  /// [greaterThan] must be true to get greater than this starting point.
   ///
-  /// if greaterThen, iterator sorted ascending, else sorted descending.
+  /// if greaterThan, iterator sorted ascending, else sorted descending.
   ///
   /// [bound] the end point of the range
   BinaryTreeRangeIterator<T> iteratorFrom(T element,
-          {bool equal = false, bool greaterThen = true}) =>
+          {bool equal = false, bool greaterThan = true}) =>
       BinaryTreeRangeIterator.from(this, element,
-          equal: equal, greaterThen: greaterThen);
+          equal: equal, greaterThan: greaterThan);
 
   @override
   BinaryTreeIterator<T> get iterator => BinaryTreeIterator(this);
@@ -234,23 +234,23 @@ class BinaryTree<T extends Comparable> extends IterableBase<T> {
   /// Range starting point is [element]. If the range can contains [element],
   /// [equal] must be true.
   ///
-  /// [greaterThen] must be true to get greater than this starting point.
+  /// [greaterThan] must be true to get greater than this starting point.
   ///
-  /// if greaterThen, list sorted ascending, else sorted descending.
+  /// if greaterThan, list sorted ascending, else sorted descending.
   ///
   /// [bound] the end point of the range
   List<T> toListFrom(T element,
-      {bool equal = false, bool greaterThen = true, Bound<T>? bound}) {
+      {bool equal = false, bool greaterThan = true, Bound<T>? bound}) {
     if (bound != null) {
       return _toListWithBound(element,
-          bound: bound, greaterThen: greaterThen, equal: equal);
+          bound: bound, greaterThan: greaterThan, equal: equal);
     }
-    return _toListFrom(element, equal: equal, greaterThen: greaterThen);
+    return _toListFrom(element, equal: equal, greaterThan: greaterThan);
   }
 
   List<T> _toListFrom(T element,
-      {bool equal = false, bool greaterThen = true}) {
-    var it = iteratorFrom(element, equal: equal, greaterThen: greaterThen);
+      {bool equal = false, bool greaterThan = true}) {
+    var it = iteratorFrom(element, equal: equal, greaterThan: greaterThan);
     var l = <T>[];
     while (it.moveNext()) {
       l.add(it.current);
@@ -259,14 +259,14 @@ class BinaryTree<T extends Comparable> extends IterableBase<T> {
   }
 
   List<T> _toListWithBound(T element,
-      {bool equal = false, bool greaterThen = true, required Bound<T> bound}) {
+      {bool equal = false, bool greaterThan = true, required Bound<T> bound}) {
     BoundError.check(
-        bound: bound, element: element, greaterThen: greaterThen, equal: equal);
-    var it = iteratorFrom(element, equal: equal, greaterThen: greaterThen);
+        bound: bound, element: element, greaterThan: greaterThan, equal: equal);
+    var it = iteratorFrom(element, equal: equal, greaterThan: greaterThan);
 
     var l = <T>[];
     while (it.moveNext()) {
-      if (!bound.check(it.current, greaterThen)) {
+      if (!bound.check(it.current, greaterThan)) {
         break;
       }
       l.add(it.current);
@@ -274,23 +274,23 @@ class BinaryTree<T extends Comparable> extends IterableBase<T> {
     return l;
   }
 
-  /// List of values greater then [element]
+  /// List of values greater than [element]
   /// return orderly ascending
-  List<T> greaterThen(T element) => toListFrom(element, greaterThen: true);
+  List<T> greaterThan(T element) => toListFrom(element, greaterThan: true);
 
-  /// List of values greater or equal then [element]
+  /// List of values greater or equal than [element]
   /// return orderly ascending
-  List<T> greaterThenOrEqual(T element) =>
-      toListFrom(element, equal: true, greaterThen: true);
+  List<T> greaterThanOrEqual(T element) =>
+      toListFrom(element, equal: true, greaterThan: true);
 
-  /// List of values less then [element]
+  /// List of values less than [element]
   /// return orderly descending
-  List<T> lessThen(T element) => toListFrom(element, greaterThen: false);
+  List<T> lessThan(T element) => toListFrom(element, greaterThan: false);
 
-  /// List of values less then or equal [element]
+  /// List of values less than or equal [element]
   /// return orderly descending
-  List<T> lessThenOrEqual(T element) =>
-      toListFrom(element, equal: true, greaterThen: false);
+  List<T> lessThanOrEqual(T element) =>
+      toListFrom(element, equal: true, greaterThan: false);
 
   @override
   bool any(bool Function(T element) test) {
