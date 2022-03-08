@@ -223,9 +223,12 @@ class BinaryTree<T extends Comparable> extends IterableBase<T> {
   ///
   /// [bound] the end point of the range
   BinaryTreeRangeIterator<T> iteratorFrom(T element,
-          {bool equal = false, bool greaterThan = true}) =>
-      BinaryTreeRangeIterator.from(this, element,
-          equal: equal, greaterThan: greaterThan);
+          {bool equal = false, bool greaterThan = true, Bound<T>? bound}) =>
+      bound != null
+          ? BinaryTreeRangeIteratorWithBound.from(this, element,
+              equal: equal, greaterThan: greaterThan, bound: bound)
+          : BinaryTreeRangeIterator.from(this, element,
+              equal: equal, greaterThan: greaterThan);
 
   @override
   BinaryTreeIterator<T> get iterator => BinaryTreeIterator(this);
@@ -241,34 +244,10 @@ class BinaryTree<T extends Comparable> extends IterableBase<T> {
   /// [bound] the end point of the range
   List<T> toListFrom(T element,
       {bool equal = false, bool greaterThan = true, Bound<T>? bound}) {
-    if (bound != null) {
-      return _toListWithBound(element,
-          bound: bound, greaterThan: greaterThan, equal: equal);
-    }
-    return _toListFrom(element, equal: equal, greaterThan: greaterThan);
-  }
-
-  List<T> _toListFrom(T element,
-      {bool equal = false, bool greaterThan = true}) {
-    var it = iteratorFrom(element, equal: equal, greaterThan: greaterThan);
+    var it = iteratorFrom(element,
+        equal: equal, greaterThan: greaterThan, bound: bound);
     var l = <T>[];
     while (it.moveNext()) {
-      l.add(it.current);
-    }
-    return l;
-  }
-
-  List<T> _toListWithBound(T element,
-      {bool equal = false, bool greaterThan = true, required Bound<T> bound}) {
-    BoundError.check(
-        bound: bound, element: element, greaterThan: greaterThan, equal: equal);
-    var it = iteratorFrom(element, equal: equal, greaterThan: greaterThan);
-
-    var l = <T>[];
-    while (it.moveNext()) {
-      if (!bound.check(it.current, greaterThan)) {
-        break;
-      }
       l.add(it.current);
     }
     return l;
@@ -276,21 +255,23 @@ class BinaryTree<T extends Comparable> extends IterableBase<T> {
 
   /// List of values greater than [element]
   /// return orderly ascending
-  List<T> greaterThan(T element) => toListFrom(element, greaterThan: true);
+  List<T> greaterThan(T element, [Bound<T>? bound]) =>
+      toListFrom(element, greaterThan: true, bound: bound);
 
   /// List of values greater or equal than [element]
   /// return orderly ascending
-  List<T> greaterThanOrEqual(T element) =>
+  List<T> greaterThanOrEqual(T element, [Bound<T>? bound]) =>
       toListFrom(element, equal: true, greaterThan: true);
 
   /// List of values less than [element]
   /// return orderly descending
-  List<T> lessThan(T element) => toListFrom(element, greaterThan: false);
+  List<T> lessThan(T element, [Bound<T>? bound]) =>
+      toListFrom(element, greaterThan: false, bound: bound);
 
   /// List of values less than or equal [element]
   /// return orderly descending
-  List<T> lessThanOrEqual(T element) =>
-      toListFrom(element, equal: true, greaterThan: false);
+  List<T> lessThanOrEqual(T element, [Bound<T>? bound]) =>
+      toListFrom(element, equal: true, greaterThan: false, bound: bound);
 
   @override
   bool any(bool Function(T element) test) {

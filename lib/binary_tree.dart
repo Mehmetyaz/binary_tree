@@ -1,6 +1,4 @@
-/// Support for doing something awesome.
-///
-/// More dartdocs go here.
+/// AVL type self-balancing binary tree implementation.
 library binary_tree;
 
 export 'src/binary_tree_base.dart'

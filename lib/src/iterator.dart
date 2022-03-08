@@ -140,6 +140,33 @@ class BinaryTreeRangeIterator<T extends Comparable> extends Iterator<T> {
   }
 }
 
+/// Binary tree iterator with bound
+class BinaryTreeRangeIteratorWithBound<T extends Comparable>
+    extends BinaryTreeRangeIterator<T> {
+  BinaryTreeRangeIteratorWithBound.from(BinaryTree<T> _tree, T element,
+      {required bool equal, required bool greaterThan, required this.bound})
+      : super.from(_tree, element, equal: equal, greaterThan: greaterThan) {
+    BoundError.check(
+        bound: bound, element: element, greaterThan: greaterThan, equal: equal);
+  }
+
+  final Bound<T> bound;
+
+  @override
+  bool moveNext() {
+    var n = super.moveNext();
+
+    if (n) {
+      if (bound.check(current, greaterThan)) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+    return false;
+  }
+}
+
 class RangeIteratorNode<T extends Comparable> extends IteratorNode<T> {
   RangeIteratorNode(
       TreeNode<T> treeNode, IteratorNode<T>? parent, this._iterator)
