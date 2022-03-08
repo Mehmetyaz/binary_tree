@@ -1,3 +1,10 @@
+## 1.0.3
+
+- ``Bound`` added to `iteratorFrom`.
+- Readme changed
+- change `==` to `identical`
+
+
 ## 1.0.2
 
 - Added tree type(AVL) to readme

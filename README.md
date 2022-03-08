@@ -1,5 +1,5 @@
 Self-Balancing Binary Search Tree for Dart. BST is implemented as Iterable. There are many operations such as
-greaterThen, lessThenOrEqual (create sublist), max , min etc.
+greaterThan, lessThanOrEqual (create sublist), max , min etc.
 
 ## Features
 
@@ -68,7 +68,7 @@ You can create an ``Iterator`` by "startsWith" or "endsWith" given element.
 ````dart
 f() {
   final myNumbers = BinaryTree([10, 8, 16, 4, 9, 13, 25, 2, 6, 12, 26, 14, 18]);
-  final iterator = myNumbers.iteratorFrom(8, greaterThen: true, equal: false); // defaults
+  final iterator = myNumbers.iteratorFrom(8, greaterThan: true, equal: false); // defaults
   while (iterator.moveNext()) {
     print(iterator.current); // 9 , 10 ... 26
   }
@@ -95,16 +95,16 @@ You can create new lists using range iterators.
 f() {
   final myNumbers = BinaryTree([10, 8, 16, 4, 9, 13, 25, 2, 6, 12, 26, 14, 18]);
 
-  myNumbers.lessThen(16);
+  myNumbers.lessThan(16);
 
   /// 14 , 13 , ... 2
-  myNumbers.lessThenOrEqual(16);
+  myNumbers.lessThanOrEqual(16);
 
   /// 16 , 14 , 13 , ... 2
-  myNumbers.greaterThen(16);
+  myNumbers.greaterThan(16);
 
   ///  25 , 26
-  myNumbers.greaterThenOrEqual(16);
+  myNumbers.greaterThanOrEqual(16);
 
   /// 16 , 25 , 26
 
