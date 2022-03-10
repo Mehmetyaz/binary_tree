@@ -33,7 +33,7 @@ class TreeNode<T extends Comparable> {
   }
 
   bool _contains(T element) {
-    if (identical(data, element)) return true;
+    if (identical(data, element) || data == element) return true;
     if (element > data) {
       return right?._contains(element) ?? false;
     } else if (element < data) {

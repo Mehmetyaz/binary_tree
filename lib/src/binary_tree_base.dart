@@ -94,7 +94,7 @@ class BinaryTree<T extends Comparable> extends IterableBase<T> {
   TreeNode<T>? _remove(T element, TreeNode<T>? node) {
     if (node == null) return null;
 
-    if (identical(node.data, element)) {
+    if (identical(node.data, element) || node.data == element) {
       /// remove this
       if (node.isEnd) {
         _length--;
