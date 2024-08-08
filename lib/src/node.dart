@@ -32,11 +32,22 @@ class TreeNode<T extends Comparable> {
     height = math.max(_h(left), _h(right)) + 1;
   }
 
-  bool _contains(T element) {
+  T? _search(Object element) {
+    if (identical(data, element) || data == element) return data;
+    if (data < element) {
+      return right?._search(element);
+    } else if (data > element) {
+      return left?._search(element);
+    } else {
+      return null;
+    }
+  }
+
+  bool _contains(Object element) {
     if (identical(data, element) || data == element) return true;
-    if (element > data) {
+    if (data < element) {
       return right?._contains(element) ?? false;
-    } else if (element < data) {
+    } else if (data > element) {
       return left?._contains(element) ?? false;
     } else {
       return false;

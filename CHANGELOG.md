@@ -1,3 +1,13 @@
+## 1.0.6
+
+- Fix comparison operators
+- sdk version updated
+
+## 1.0.5
+
+- `search` added
+- different type comparison support. (E.g ``test/methods_test.dart``)
+
 ## 1.0.4
 
 - change `==` to `identical || == `

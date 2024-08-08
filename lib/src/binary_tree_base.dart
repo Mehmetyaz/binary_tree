@@ -289,6 +289,18 @@ class BinaryTree<T extends Comparable> extends IterableBase<T> {
     _rootNode = null;
   }
 
+  /// Search element
+  /// If element contains returns element,
+  /// else returns null.
+  ///
+  /// E.g use case:
+  ///
+  /// class MyComparable extends Comparable<int> {}
+  ///
+  /// MyComparable? found = search(15);
+  T? search(Object? element) =>
+      element == null ? null : (_rootNode?._search(element));
+
   @override
   bool contains(Object? element) {
     if (element is! T) return false;

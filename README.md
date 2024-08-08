@@ -53,11 +53,13 @@ void main() {
 
 ```dart
 void main() {
-  final myNumbers = BinaryTree([ /*initial*/
+  final myNumbers = BinaryTree([ 
+    /*initial*/
   ]);
   myNumbers.insert(value);
   myNumbers.remove(value);
   myNumbers.contains(value);
+  
 }
 ```
 
