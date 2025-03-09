@@ -7,6 +7,7 @@ import 'package:test/scaffolding.dart';
 void main() {
   testInt();
   testCustom();
+  testIssue7();
 }
 
 void testInt() {
@@ -51,6 +52,55 @@ void testRemove(String i) {
     var binarySorted = binaryList.toList();
     expect(binarySorted, sorted);
     expect(binarySorted.length, sorted.length);
+  });
+}
+
+void testIssue7() {
+  test('issue 7', () {
+    final tree = BinaryTree<int>([
+      15985,
+      15977,
+      16006,
+      4508,
+      15982,
+      16000,
+      16022,
+      4500,
+      15964,
+      15978,
+      15984,
+      15999,
+      16005,
+      16019,
+      16041,
+      15980,
+      15983,
+      16040
+    ]);
+
+    tree.remove(15977);
+
+    expect(tree, hasLength(17));
+    expect(tree.toList(), hasLength(17));
+    expect(tree.toList(), [
+      4500,
+      4508,
+      15964,
+      15978,
+      15980,
+      15982,
+      15983,
+      15984,
+      15985,
+      15999,
+      16000,
+      16005,
+      16006,
+      16019,
+      16022,
+      16040,
+      16041
+    ]);
   });
 }
 
