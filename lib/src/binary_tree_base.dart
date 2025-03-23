@@ -1,14 +1,10 @@
 import 'dart:collection';
-
 import 'dart:math' as math;
 
-part 'node.dart';
-
-part 'iterator.dart';
-
-part 'comparison_operators.dart';
-
 part 'bound.dart';
+part 'comparison_operators.dart';
+part 'iterator.dart';
+part 'node.dart';
 
 /// Self-Balancing Binary Search Tree
 /// https://en.wikipedia.org/wiki/Binary_search_tree
@@ -53,78 +49,43 @@ class BinaryTree<T extends Comparable> extends IterableBase<T> {
   }
 
   ///
-  TreeNode<T>? _removeMax(
-      TreeNode<T>? parent, TreeNode<T> n, void Function(T) onMax) {
-    TreeNode<T>? node = n;
-    if (n.right == null) {
-      onMax(n.data);
-      _length--;
-      node = null;
-    } else {
-      node.right = _removeMax(n, n.right!, onMax);
-    }
-
-    node?._setH();
-    if (node != null) {
-      node = _balance(node);
-    }
-    return node;
-  }
-
-  ///
-  TreeNode<T>? _removeMin(
-      TreeNode<T>? parent, TreeNode<T> n, void Function(T) onMin) {
-    TreeNode<T>? node = n;
-    if (n.left == null) {
-      onMin(n.data);
-      node = null;
-      _length--;
-    } else {
-      node.left = _removeMin(n, n.left!, onMin);
-    }
-
-    node?._setH();
-    if (node != null) {
-      node = _balance(node);
-    }
-    return node;
-  }
-
-  ///
   TreeNode<T>? _remove(T element, TreeNode<T>? node) {
     if (node == null) return null;
 
-    if (identical(node.data, element) || node.data == element) {
-      /// remove this
-      if (node.isEnd) {
-        _length--;
-        return null;
-      } else {
-        var hl = _h(node.left);
-        var hr = _h(node.right);
-        if (hl > hr) {
-          T? leftMax;
-          var r = _removeMax(node, node.left!, (p0) {
-            leftMax = p0;
-          });
-          node.left = r;
-          node.data = leftMax!;
-        } else {
-          T? rightMin;
-          var r = _removeMin(node, node.right!, (p0) {
-            rightMin = p0;
-          });
-          node.right = r;
-          node.data = rightMin!;
-        }
-      }
-    } else if (node.data < element) {
-      node.right = _remove(element, node.right);
-    } else if (node.data > element) {
+    if (element < node.data) {
       node.left = _remove(element, node.left);
+    } else if (element > node.data) {
+      node.right = _remove(element, node.right);
+    } else {
+      // Node to be removed found
+      if (node.left == null) {
+        _length--;
+        return node.right;
+      } else if (node.right == null) {
+        _length--;
+        return node.left;
+      } else {
+        // Node with two children: Get the inorder successor (smallest in the right subtree)
+        var minNode = _minValueNode(node.right!);
+        node.data = minNode.data;
+        node.right = _remove(minNode.data, node.right);
+      }
     }
+
+    // Update the height of the current node
+    node.height = math.max(_h(node.left), _h(node.right)) + 1;
+
+    // Balance the node
     node = _balance(node);
     return node;
+  }
+
+  TreeNode<T> _minValueNode(TreeNode<T> node) {
+    var current = node;
+    while (current.left != null) {
+      current = current.left!;
+    }
+    return current;
   }
 
   TreeNode<T> _insert(T element, TreeNode<T>? t) {
