@@ -1,3 +1,7 @@
+## 1.0.7
+
+- Fix bug in `BinaryTree.remove(T element)`.
+
 ## 1.0.6
 
 - Fix comparison operators
