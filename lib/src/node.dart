@@ -26,12 +26,6 @@ class TreeNode<T extends Comparable> {
   /// Left node
   TreeNode<T>? right;
 
-  int _h(TreeNode<T>? n) => n == null ? -1 : n.height;
-
-  void _setH() {
-    height = math.max(_h(left), _h(right)) + 1;
-  }
-
   T? _search(Object element) {
     if (identical(data, element) || data == element) return data;
     if (data < element) {
